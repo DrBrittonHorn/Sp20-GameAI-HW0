@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import agents.Agent;
-import agents.BFSAgent;
 import agents.BasicAgent;
 
 public class Main {
@@ -20,14 +19,14 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//Agent a = new BasicAgent();
-		Agent a = new BFSAgent();
+		Agent a = new BasicAgent();
+		//Agent a = new BFSAgent();
 		g.Play(a);
 		//g.printBoard();
 	}
 
 	private static void loadMazeFile(Game g) throws IOException {
-		File file = new File("map2.txt"); 
+		File file = new File("map1.txt"); 
 		BufferedReader br = new BufferedReader(new FileReader(file)); 
 		  
 		String st;
