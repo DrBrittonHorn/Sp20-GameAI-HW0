@@ -63,7 +63,7 @@ public class BasicAgent implements Agent {
 					solution = solution.parent;
 				}
 				for(Direction d : solutions) {
-					System.out.print(d + ", ");
+//					System.out.print(d + ", ");
 				}
 				System.out.println("\n");
 				return solutions;
@@ -76,24 +76,27 @@ public class BasicAgent implements Agent {
 					for (int i = 0; i < closedLocations.size(); i++) {
 						if(closedLocations.get(i).p.equals(p)) inClosedIndex = i;
 					} 
+					for (int i = 0; i < openLocations.size(); i++) {
+						if(openLocations.get(i).p.equals(p)) inOpenIndex = i;
+					} 
 					if (inOpenIndex != -1 && f(openLocations.get(inOpenIndex), goal) <= f(n.distance, p, goal) ){
-						System.out.println("Better node in open list");
+//						System.out.println("Better node in open list");
 						continue;
 					}
 					if(inClosedIndex != -1 && f(closedLocations.get(inClosedIndex), goal) <= f(n.distance, p, goal)) {
-						System.out.println("Better node in closed list");
+//						System.out.println("Better node in closed list");
 						continue;
 					}
 					if (inClosedIndex != -1) {
 						closedLocations.remove(inClosedIndex);
-						System.out.println("Removed node from closed list");
+//						System.out.println("Removed node from closed list");
 					}
 					if (inOpenIndex != -1) {
 						openLocations.remove(inOpenIndex);
-						System.out.println("Removed node from open list");
+//						System.out.println("Removed node from open list");
 					}
 					openLocations.add(new Node(p, n.distance+1, n));
-					System.out.println("Added node to open list");
+//					System.out.println("Added node to open list");
 				}
 			}
 		}
